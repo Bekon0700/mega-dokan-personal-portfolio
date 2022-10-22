@@ -3,6 +3,7 @@ import Main from './components/layout/main-layout/Main'
 import AllProducts from './pages/all-products/AllProducts'
 import Cart from './pages/cart/Cart'
 import CheckOut from './pages/check-out/CheckOut'
+import Error from './pages/error/Error'
 import Home from './pages/home/Home'
 import Login from './pages/login/Login'
 import ProductsBrand from './pages/products-brand/ProductsBrand'
@@ -17,6 +18,7 @@ function App() {
     {
       path: '/',
       element: <Main />,
+      errorElement: <Error />,
       children: [
         {
           path: '/',
