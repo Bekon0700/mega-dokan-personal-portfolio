@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import CartCard from '../../components/cart-card/CartCard'
 import { cartContext } from '../../context/CartProvider'
 
+
 const CheckOut = () => {
     const {cart, totalPrice} = useContext(cartContext)
 
@@ -20,7 +21,7 @@ const CheckOut = () => {
                 <p className='text-lg lg:text-2xl font-semibold text-green-800'>Total Price: ${totalPrice.toFixed(2)}</p>
             </div>
             <div className='flex justify-center pt-8'>
-                <Link onClick={checkOutHandler} className='bg-green-300 py-2 text-lg font-bold uppercase text-blue-900 w-full rounded-md text-center'>Payment through stripe</Link>
+                <Link className='bg-green-300 py-2 text-lg font-bold uppercase text-blue-900 w-full rounded-md text-center'>Payment through stripe</Link>
             </div>
         </div>
     </div>
