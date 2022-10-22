@@ -11,7 +11,7 @@ const MegaDeal = ({data}) => {
       </div>
       <div className='py-12 grid grid-cols-1 lg:grid-cols-4 gap-8'>
         {
-          products.map(el => <ProductCard key={el._id} product={el}/>)
+          products.map(el => <ProductCard key={el._id} product={el} megaDeal={true}/>)
         }
         
       </div>

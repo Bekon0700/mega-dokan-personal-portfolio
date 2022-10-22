@@ -34,6 +34,12 @@ const Products = () => {
           <button onClick={() => cartHandler(product)} className='bg-yellow-200 text-xl font-semibold text-gray-900  py-2 rounded-md'>add to cart</button>
         </div>
       </div>
+      <p className='text-2xl font-semibold text-gray-900 text-center pt-8'>Product showcase</p>
+      <div className='grid grid-cols-1 lg:grid-cols-5 gap-8 py-12 justify-items-center'>
+      {
+        product?.images.map(el => <img src={el} alt={`${product.productName}-thumbnail`} key={el} className='h-72 w-72 shadow-2xl rounded-md'/>)
+      }
+      </div>
     </div>
   )
 }

@@ -10,7 +10,7 @@ const provider = new GoogleAuthProvider();
 
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState([])
-    const [isLoading, setIsLoading] = useState(false)
+    const [isLoading, setIsLoading] = useState(true)
 
     const userRegister = (email, password) => {
         return createUserWithEmailAndPassword(auth, email, password)
@@ -35,6 +35,7 @@ const AuthProvider = ({ children }) => {
     useEffect(() => {
         const cleanUp = onAuthStateChanged(auth, (person) => {
             setUser(person)
+            setIsLoading(false)
         })
 
         return () => cleanUp()
@@ -46,7 +47,8 @@ const AuthProvider = ({ children }) => {
         updateUser,
         userLogin,
         userLogout,
-        googleLogin
+        googleLogin,
+        isLoading
     }
     return (
         <authContext.Provider value={value}>

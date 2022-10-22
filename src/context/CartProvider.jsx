@@ -8,10 +8,23 @@ const CartProvider = ({children}) => {
   const [totalPrice, setTotalPrice] = useState(0)
 
   const cartHandler = (product) => {
-    setCart([...cart, product])
+    const exceptProduct = cart.filter(el => el._id != product._id)
+    const onlyProduct = cart.filter(el => el._id === product._id)
+
+    if(onlyProduct[0]){
+      product.quantity = onlyProduct[0].quantity + 1
+    }else{
+      product.quantity = 1
+    }
+    setCart([...exceptProduct, product])
   }
   const cartClrHandler = () => {
     setCart([])
+  }
+
+  const productClrHandler = (id) => {
+    const exceptProduct = cart.filter(el => el._id != id)
+    setCart([...exceptProduct])
   }
 
   useEffect(() => {
@@ -24,16 +37,17 @@ const CartProvider = ({children}) => {
   }, [cart])
 
   const totalCalculate = (product) => {
-    const {price, discountPercentage} = product
+    const {price, discountPercentage, quantity} = product
     const discount = (price * 1) * ((discountPercentage * 1) / 100)
-    const discountPrice = (price * 1) - discount
+    const discountPrice = ((price * 1) - discount) * quantity
     return discountPrice
   }
   const value = {
     cart,
     totalPrice,
     cartHandler,
-    cartClrHandler
+    cartClrHandler,
+    productClrHandler
   }
   return (
     <cartContext.Provider value={value}>

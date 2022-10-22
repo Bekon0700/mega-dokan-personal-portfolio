@@ -1,5 +1,5 @@
-import React, { useContext } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useContext, useEffect, useState } from 'react'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import FormInput from '../../components/form-input/FormInput'
 import { authContext } from '../../context/AuthProvider'
 const formData = [
@@ -18,6 +18,9 @@ const formData = [
 ]
 
 const Login = () => {
+    const location = useLocation()
+    const navigate = useNavigate()
+    const [login, setLogin] = useState(false)
     const {userLogin, googleLogin} = useContext(authContext)
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -26,6 +29,7 @@ const Login = () => {
         const password = form.password.value
         try{
             await userLogin(email, password)
+            setLogin(true)
         }catch(err){
             // console.log(err.message)
         }
@@ -34,7 +38,17 @@ const Login = () => {
 
     const googleHandler = async () =>{
         await googleLogin()
+        setLogin(true)
     }
+    useEffect(() => {
+        if(login && location.state){
+            navigate(`${location.state.from}`)
+        
+        }
+        if(login){
+            navigate(`/`)
+        }
+    }, [login])
 
     return (
         <div className='flex justify-center py-12 lg:py-24'>

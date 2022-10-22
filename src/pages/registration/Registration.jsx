@@ -33,7 +33,7 @@ const formData = [
 
 const Registration = () => {
     const [err, setErr] = useState(false)
-    const {user, userRegister, updateUser} = useContext(authContext)
+    const {userRegister, updateUser, userLogout} = useContext(authContext)
     const handleSubmit = async (e) => {
         e.preventDefault()
         const form = e.target
@@ -47,6 +47,8 @@ const Registration = () => {
                 displayName: name
             })
             form.reset()
+            await userLogout()
+            alert('Your account has been created, please log in')
         }else{
             setErr(true)
         }

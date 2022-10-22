@@ -2,6 +2,7 @@ import {createBrowserRouter, RouterProvider} from 'react-router-dom'
 import Main from './components/layout/main-layout/Main'
 import AllProducts from './pages/all-products/AllProducts'
 import Cart from './pages/cart/Cart'
+import CheckOut from './pages/check-out/CheckOut'
 import Home from './pages/home/Home'
 import Login from './pages/login/Login'
 import ProductsBrand from './pages/products-brand/ProductsBrand'
@@ -9,6 +10,7 @@ import ProductCategories from './pages/products-categories/ProductCategories'
 import Products from './pages/products/Products'
 import Registration from './pages/registration/Registration'
 import SearchProducts from './pages/search-products/SearchProducts'
+import ProtectedRoute from './protected-route/ProtectedRoute'
 
 function App() {
   const router = createBrowserRouter([
@@ -62,6 +64,10 @@ function App() {
         {
           path: 'cart',
           element: <Cart />
+        },
+        {
+          path: 'checkout',
+          element: <ProtectedRoute><CheckOut /></ProtectedRoute>
         },
         {
           path: '/login',

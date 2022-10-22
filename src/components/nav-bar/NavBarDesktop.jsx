@@ -51,7 +51,7 @@ const NavBarDesktop = () => {
                     </div>
                     {/* AVATAR */}
                     {
-                        user ?
+                        user?.displayName ?
                         <div className='flex gap-4 items-center'>
                             <p className='text-xl font-semibold text-green-300 capitalize'>welcome, {user.displayName}</p>
                             <Link onClick={logOutHandler} className='p-2 border border-white rounded-lg'>Log out</Link>
