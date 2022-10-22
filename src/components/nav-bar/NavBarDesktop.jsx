@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { FiSearch } from 'react-icons/fi'
 import { Link, useNavigate } from 'react-router-dom'
+import { authContext } from '../../context/AuthProvider'
 import { cartContext } from '../../context/CartProvider'
 import { searchContext } from '../../context/SearchProvider'
 import SideBar from '../side-bar/SideBar'
@@ -16,9 +17,12 @@ const NavBarDesktop = () => {
         navigate(`/search/${searchKey}`)
         e.target.reset()
     }
+    const {cart} = useContext(cartContext)
+    const {userLogout, user} = useContext(authContext)
 
-  const {cart} = useContext(cartContext)
-
+    const logOutHandler = async () => {
+        await userLogout()
+    }
 
     return (
         <div className=''>
@@ -46,23 +50,15 @@ const NavBarDesktop = () => {
                         </label>
                     </div>
                     {/* AVATAR */}
-                    {/* <div className="dropdown dropdown-end">
-                        <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                            <div className="w-10 rounded-full">
-                                <img src="https://placeimg.com/80/80/people" />
-                            </div>
-                        </label>
-                        <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                            <li>
-                                <a className="justify-between">
-                                    Profile
-                                    <span className="badge">New</span>
-                                </a>
-                            </li>
-                            <li><a>Settings</a></li>
-                            <li><a>Logout</a></li>
-                        </ul>
-                    </div> */}
+                    {
+                        user ?
+                        <div className='flex gap-4 items-center'>
+                            <p className='text-xl font-semibold text-green-300 capitalize'>welcome, {user.displayName}</p>
+                            <Link onClick={logOutHandler} className='p-2 border border-white rounded-lg'>Log out</Link>
+                        </div>
+                        :
+                        <Link to='/login' className='p-2 border border-white rounded-lg'>Sign in</Link>
+                    }
                 </div>
             </div>
         </div>
