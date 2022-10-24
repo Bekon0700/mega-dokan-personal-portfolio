@@ -1,3 +1,4 @@
+import { Toaster } from 'react-hot-toast'
 import {createBrowserRouter, RouterProvider} from 'react-router-dom'
 import Main from './components/layout/main-layout/Main'
 import AllProducts from './pages/all-products/AllProducts'
@@ -80,12 +81,14 @@ function App() {
           element: <Registration />
         },
       ]
-    }
+    },
   ])
 
   return (
     <div>
-      <RouterProvider router={router} />
+      <RouterProvider router={router}>
+      </RouterProvider>
+        <Toaster/> 
     </div>
   )
 }

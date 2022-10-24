@@ -13,22 +13,31 @@ const AuthProvider = ({ children }) => {
     const [isLoading, setIsLoading] = useState(true)
 
     const userRegister = (email, password) => {
+        setIsLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
     }
 
     const updateUser = (info) => {
+        setIsLoading(true)
+
         return updateProfile(auth.currentUser, info)
     }
 
     const userLogin = (email, password) => {
+        setIsLoading(true)
+
         return signInWithEmailAndPassword(auth, email, password)
     }
 
     const userLogout = () => {
+        setIsLoading(true)
+
         return signOut(auth)
     }
 
     const googleLogin = () => {
+        setIsLoading(true)
+
         return signInWithPopup(auth, provider)
     }
 

@@ -12,7 +12,7 @@ const Cart = () => {
             <p className='text-3xl font-semibold text-gray-900 pb-8'>Shopping Cart</p>
             <div className='flex flex-col gap-4'>
                 {
-                    cart.map(el => <CartCard key={el._id} product={el} />)
+                    cart.map(el => <CartCard key={el._id} product={el} delOpt={true}/>)
                 }
             </div>
             {

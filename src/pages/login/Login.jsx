@@ -20,8 +20,10 @@ const formData = [
 const Login = () => {
     const location = useLocation()
     const navigate = useNavigate()
-    const [login, setLogin] = useState(false)
+    // console.log(location)
+
     const {userLogin, googleLogin} = useContext(authContext)
+    const path = location?.state?.from || '/'
     const handleSubmit = async (e) => {
         e.preventDefault()
         const form = e.target
@@ -29,26 +31,16 @@ const Login = () => {
         const password = form.password.value
         try{
             await userLogin(email, password)
-            setLogin(true)
+            form.reset()
+            navigate(path, {replace: true})
         }catch(err){
             // console.log(err.message)
         }
-        form.reset()
     }
 
     const googleHandler = async () =>{
         await googleLogin()
-        setLogin(true)
     }
-    useEffect(() => {
-        if(login && location.state){
-            navigate(`${location.state.from}`)
-        
-        }
-        if(login){
-            navigate(`/`)
-        }
-    }, [login])
 
     return (
         <div className='flex justify-center py-12 lg:py-24'>

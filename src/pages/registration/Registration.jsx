@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
+import toast from 'react-hot-toast'
 import { Link } from 'react-router-dom'
 import FormInput from '../../components/form-input/FormInput'
 import { authContext } from '../../context/AuthProvider'
@@ -48,7 +49,7 @@ const Registration = () => {
             })
             form.reset()
             await userLogout()
-            alert('Your account has been created, please log in')
+            toast.success('Your account has been created, please log in')
         }else{
             setErr(true)
         }

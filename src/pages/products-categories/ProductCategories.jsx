@@ -24,8 +24,8 @@ const ProductCategories = () => {
                         }
                     </div>
                 </div>
-                <div className='col-span-12 lg:col-span-10 px-8'>
-                    <div className='py-12 grid grid-cols-1 lg:grid-cols-3 gap-8'>
+                <div className='col-span-12 lg:col-span-10 px-4'>
+                    <div className='py-12 grid grid-cols-1 lg:grid-cols-4 gap-4'>
                         {
                             products.map(el => <ProductCard key={el._id} product={el} megaDeal={false} />)
                         }

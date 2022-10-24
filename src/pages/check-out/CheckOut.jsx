@@ -14,14 +14,14 @@ const CheckOut = () => {
             <p className='text-3xl font-semibold text-gray-900 pb-8'>Check out</p>
             <div className='flex flex-col gap-4'>
                 {
-                    cart.map(el => <CartCard key={el._id} product={el} />)
+                    cart.map(el => <CartCard key={el._id} product={el} delOpt={false} />)
                 }
             </div>
             <div className='flex justify-end'>
                 <p className='text-lg lg:text-2xl font-semibold text-green-800'>Total Price: ${totalPrice.toFixed(2)}</p>
             </div>
             <div className='flex justify-center pt-8'>
-                <Link className='bg-green-300 py-2 text-lg font-bold uppercase text-blue-900 w-full rounded-md text-center'>Payment through stripe</Link>
+                <button disabled={true} className='bg-green-300 py-2 text-lg font-bold uppercase text-blue-900 w-full rounded-md text-center'>Payment method will added soon</button>
             </div>
         </div>
     </div>

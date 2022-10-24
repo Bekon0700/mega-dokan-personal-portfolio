@@ -10,13 +10,12 @@ const Products = () => {
     const discount = (price * 1) * ((discountPercentage * 1) / 100)
     const discountPrice = (price * 1) - discount
   return (
-    <div className='w-5/6 lg:w-3/4 mx-auto py-12'>
-      <p className='text-2xl uppercase font-semibold text-center pb-8'>Individual product</p>
-      <div className='grid grid-cols-12 gap-8'>
-        <div className='col-span-12 lg:col-span-2 justify-center'>
-          <img src={product.thumbnail} alt={`${product.productName}-thumbnail`} className='h-72 w-full shadow-2xl rounded-md'/>
+    <div className='w-5/6 lg:w-3/4 mx-auto py-14 lg:py-24'>
+      <div className='grid grid-cols-12 gap-2'>
+        <div className='col-span-12 lg:col-span-3 justify-center'>
+          <img src={product.thumbnail} alt={`${product.productName}-thumbnail`} className='h-80 w-full shadow-2xl rounded-md'/>
         </div>
-        <div className='flex flex-col gap-3 lg:px-8 lg:py-3 col-span-12 lg:col-span-8'>
+        <div className='flex flex-col gap-3 lg:px-3 lg:py-0 col-span-12 lg:col-span-7'>
           <p className='text-3xl font-semibold text-gray-900'>{product.productName}</p>
           <div>
             <p className='text-2xl font-semibold text-gray-900'>${discountPrice.toFixed(2)} <span className='line-through text-base font-normal text-gray-500'>${price}</span></p>
@@ -34,11 +33,13 @@ const Products = () => {
           <button onClick={() => cartHandler(product)} className='bg-yellow-200 text-xl font-semibold text-gray-900  py-2 rounded-md'>add to cart</button>
         </div>
       </div>
-      <p className='text-2xl font-semibold text-gray-900 text-center pt-8'>Product showcase</p>
-      <div className='grid grid-cols-1 lg:grid-cols-5 gap-8 py-12 justify-items-center'>
-      {
-        product?.images.map(el => <img src={el} alt={`${product.productName}-thumbnail`} key={el} className='h-72 w-72 shadow-2xl rounded-md'/>)
-      }
+      <div className='border border-black my-12 rounded-md'>
+        <p className='text-2xl font-semibold text-gray-900 text-center pt-4 underline uppercase'>Product showcase</p>
+        <div className='flex flex-col lg:flex-row gap-8 lg:gap-4 py-12 lg:px-3 flex-wrap items-center justify-center'>
+          {
+            product?.images.map(el => <img src={el} alt={`${product.productName}-thumbnail`} key={el} className=' w-11/12 lg:h-60 lg:w-60 shadow-2xl rounded-md'/>)
+          }
+        </div>
       </div>
     </div>
   )
