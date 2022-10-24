@@ -28,8 +28,8 @@ const Cart = () => {
                 <p className='text-center text-2xl font-semibold py-12'>No Item in the cart</p>
                 :
                 <div className='flex flex-col gap-4 justify-center pt-8'>
-                    <Link to='/checkout' className='bg-yellow-400 py-2 text-lg font-semibold uppercase text-blue-900 w-full rounded-md text-center'>Click here to proceed </Link>
-                    <button onClick={cartClrHandler} className='bg-red-500 py-2 text-lg font-semibold uppercase text-black w-full rounded-md text-center'>Clear Cart</button>
+                    <Link to='/checkout' className='bg-green-600 py-2 text-base lg:text-lg font-semibold uppercase text-white w-full rounded-md text-center'>Click here to proceed </Link>
+                    <button onClick={cartClrHandler} className='bg-red-800 py-2 text-base lg:text-lg font-semibold uppercase text-white w-full rounded-md text-center'>Clear Cart</button>
                 </div>
             }
         </div>

@@ -21,7 +21,7 @@ const CheckOut = () => {
                 <p className='text-lg lg:text-2xl font-semibold text-green-800'>Total Price: ${totalPrice.toFixed(2)}</p>
             </div>
             <div className='flex justify-center pt-8'>
-                <button disabled={true} className='bg-green-300 py-2 text-lg font-bold uppercase text-blue-900 w-full rounded-md text-center'>Payment method will added soon</button>
+                <button disabled={true} className='bg-blue-400 py-2 text-sm lg:text-lg font-bold uppercase text-black w-full rounded-md text-center'>Payment method will added soon</button>
             </div>
         </div>
     </div>

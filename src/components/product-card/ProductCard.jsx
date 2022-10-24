@@ -9,7 +9,7 @@ const ProductCard = ({ product, megaDeal }) => {
   const discountPrice = (price * 1) - discount
   return (
     <div className='mx-auto'>
-      <div className="card w-[350px] bg-base-100 rounded-md border shadow-xl">
+      <div className="card lg:w-[350px] bg-base-100 rounded-md border shadow-xl">
         <figure><img src={thumbnail} alt="Shoes" className='h-64 w-full' /></figure>
         <div className="card-body p-4 flex flex-col justify-between h-[300px]">
           <h2 className="pb-3">
