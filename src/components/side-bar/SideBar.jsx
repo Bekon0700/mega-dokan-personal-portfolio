@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom'
 
 const SideBar = ({ sideBarToggle, setSideBarToggle }) => {
     const [cat, setCat] = useState([])
-    console.log('sidebar')
     useEffect(() => {
         const apiCall = async () => {
             const res = await fetch('https://inventory-api-personal.herokuapp.com/api/v1/products/category')
