@@ -24,7 +24,7 @@ const NavBarMobile = () => {
         await userLogout()
     }
     return (
-        <div className='overflow-x-hidden'>
+        <div className='sticky top-0'>
             <SideBar sideBarToggle={sideBarToggle} setSideBarToggle={setSideBarToggle} />
             <div className="py-4 px-2 bg-gray-700 text-purple-200 overflow-x-hidden">
                 <div className='flex flex-col w-full gap-4'>

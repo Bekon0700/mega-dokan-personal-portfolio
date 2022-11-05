@@ -20,7 +20,9 @@ const Main = () => {
         :
         <div>
             <ScrollToTop />
+            <div className='sticky top-0'>
             <MainTop />
+            </div>
               <Outlet />
             <MainFooter />
         </div>
