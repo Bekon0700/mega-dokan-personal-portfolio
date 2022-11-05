@@ -19,7 +19,7 @@ const CartProvider = ({children}) => {
     }
     setCart([...exceptProduct, product])
 
-    toast.success(`${product.productName},Add to cart successful`)
+    toast.success(`${product.productName}, Added to cart successful`)
   }
 
   const cartClrHandler = () => {
