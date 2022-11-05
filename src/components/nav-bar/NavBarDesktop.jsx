@@ -57,7 +57,7 @@ const NavBarDesktop = () => {
                             <Link onClick={logOutHandler} className='p-2 border border-white rounded-lg'>Log out</Link>
                         </div>
                         :
-                        <Link to='/login' className='p-2 border border-white rounded-lg'>Sign in</Link>
+                        <Link to='/login' state={{from: `${location.pathname}`}} className='p-2 border border-white rounded-lg'>Sign in</Link>
                     }
                 </div>
             </div>

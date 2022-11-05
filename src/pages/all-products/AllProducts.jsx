@@ -32,7 +32,7 @@ const AllProducts = () => {
 
             <div className='flex flex-col gap-5'>
                 <p className='text-3xl font-bold text-center'>Our Products</p>
-                <div className='py-12 grid grid-cols-1 lg:grid-cols-4 gap-8'>
+                <div className='py-12 grid grid-cols-1 sm:grid-cols-2  xl:grid-cols-3 2xl:grid-cols-4 gap-8'>
                     {
                         products.map(el => <ProductCard key={el._id} product={el} megaDeal={false} />)
                     }

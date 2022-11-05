@@ -21,7 +21,6 @@ const Login = () => {
     const location = useLocation()
     const navigate = useNavigate()
     // console.log(location)
-
     const {userLogin, googleLogin} = useContext(authContext)
     const path = location?.state?.from || '/'
     const handleSubmit = async (e) => {
@@ -34,12 +33,13 @@ const Login = () => {
             form.reset()
             navigate(path, {replace: true})
         }catch(err){
-            // console.log(err.message)
+            console.error(err.message)
         }
     }
 
     const googleHandler = async () =>{
         await googleLogin()
+        navigate(path, {replace: true})
     }
 
     return (

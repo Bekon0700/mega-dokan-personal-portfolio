@@ -52,7 +52,7 @@ const NavBarMobile = () => {
                             <Link onClick={logOutHandler} className='p-1 border text-sm border-white rounded-lg'>Log out</Link>
                         </div>
                         :
-                        <Link to='/login' className='p-1 text-sm border border-white rounded-lg'>Sign in</Link>
+                        <Link to='/login' state={{from: `${location.pathname}`}} className='p-1 text-sm border border-white rounded-lg'>Sign in</Link>
                     }
                 </div>
                 

@@ -3,6 +3,7 @@ import { Outlet, useLocation } from 'react-router-dom'
 import MainFooter from '../main-footer/MainFooter'
 import MainTop from '../main-top/MainTop'
 import Loading from '../loading-overlay/Loading'
+import ScrollToTop from '../../scroll-to-top/ScrollToTop'
 
 const Main = () => {
   const [loading, setLoading] = useState(true)
@@ -18,6 +19,7 @@ const Main = () => {
         <Loading/>
         :
         <div>
+            <ScrollToTop />
             <MainTop />
               <Outlet />
             <MainFooter />

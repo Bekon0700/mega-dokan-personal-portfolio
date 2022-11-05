@@ -1,4 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react'
+import toast from 'react-hot-toast'
 
 export const cartContext = createContext()
 
@@ -17,7 +18,10 @@ const CartProvider = ({children}) => {
       product.quantity = 1
     }
     setCart([...exceptProduct, product])
+
+    toast.success(`${product.productName},Add to cart successful`)
   }
+
   const cartClrHandler = () => {
     setCart([])
   }

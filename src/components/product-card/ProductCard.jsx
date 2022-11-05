@@ -8,8 +8,8 @@ const ProductCard = ({ product, megaDeal }) => {
   const discount = (price * 1) * ((discountPercentage * 1) / 100)
   const discountPrice = (price * 1) - discount
   return (
-    <div className='mx-auto'>
-      <div className="card lg:w-[350px] bg-base-100 rounded-md border shadow-xl">
+    <div className=''>
+      <div className="card bg-base-100 rounded-md border shadow-xl">
         <figure><img src={thumbnail} alt="Shoes" className='h-64 w-full' /></figure>
         <div className="card-body p-4 flex flex-col justify-between h-[300px]">
           <h2 className="pb-3">
