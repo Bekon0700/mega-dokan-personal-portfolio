@@ -26,7 +26,9 @@ const NavBarDesktop = () => {
 
     return (
         <div className=''>
+            <div>
             <SideBar sideBarToggle={sideBarToggle} setSideBarToggle={setSideBarToggle} />
+            </div>
             <div className="navbar  bg-gray-700 text-purple-200 pr-8">
                 <div className="flex-none">
                     <button className="btn btn-square btn-ghost" onClick={() => setSideBarToggle(true)}>

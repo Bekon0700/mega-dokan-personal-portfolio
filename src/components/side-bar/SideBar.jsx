@@ -17,7 +17,7 @@ const SideBar = ({ sideBarToggle, setSideBarToggle }) => {
 
     return (
         <div className={sideBarToggle ?
-            ' absolute top-0 left-0 w-2/3 lg:w-1/6 h-full overflow-scroll scroll-smooth bg-purple-100 border-r ease-in duration-700 z-50 '
+            ' absolute top-0 left-0 w-2/3 lg:w-1/6 h-screen overflow-scroll scroll-smooth bg-purple-100 border-r ease-in duration-700 z-50 '
             : 'absolute top-0 -left-full w-2/3 lg:w-1/6 bg-purple-100  border-r ease-in duration-700 z-50'}>
             <div className='flex flex-col gap-6 py-4 px-4'>
                 <div className='text-xl font-bold w-full flex justify-between items-center'>
