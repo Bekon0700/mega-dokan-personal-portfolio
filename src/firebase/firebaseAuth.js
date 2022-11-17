@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCwVthOHxCw10qX8EiHSK5Ak9jKbtJ_PxM",
-  authDomain: "mega-dokan-personal-portfolio.firebaseapp.com",
-  projectId: "mega-dokan-personal-portfolio",
-  storageBucket: "mega-dokan-personal-portfolio.appspot.com",
-  messagingSenderId: "402467682284",
-  appId: "1:402467682284:web:7ec363501e6d79d7a5f2c9"
+  apiKey: import.meta.env.VITE_apiKey,
+  authDomain: import.meta.env.VITE_authDomain,
+  projectId: import.meta.env.VITE_projectId,
+  storageBucket: import.meta.env.VITE_storageBucket,
+  messagingSenderId: import.meta.env.VITE_messagingSenderId,
+  appId: import.meta.env.VITE_appId,
 };
 
 // Initialize Firebase
