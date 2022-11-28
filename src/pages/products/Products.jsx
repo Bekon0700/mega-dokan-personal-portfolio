@@ -2,18 +2,21 @@ import React, { useContext } from 'react'
 import { useLoaderData } from 'react-router-dom'
 import { cartContext } from '../../context/CartProvider'
 
-const Products = () => {
-    const {product} = useLoaderData()
-    const {cartHandler} = useContext(cartContext)
+import { PhotoProvider, PhotoView } from 'react-photo-view';
+import 'react-photo-view/dist/react-photo-view.css';
 
-    const {price, discountPercentage, rating} = product
-    const discount = (price * 1) * ((discountPercentage * 1) / 100)
-    const discountPrice = (price * 1) - discount
+const Products = () => {
+  const { product } = useLoaderData()
+  const { cartHandler } = useContext(cartContext)
+
+  const { price, discountPercentage, rating } = product
+  const discount = (price * 1) * ((discountPercentage * 1) / 100)
+  const discountPrice = (price * 1) - discount
   return (
     <div className='w-11/12 2xl:w-3/4 mx-auto py-14 lg:py-24'>
       <div className='grid grid-cols-12 gap-2'>
         <div className='col-span-12 lg:col-span-3 justify-center'>
-          <img src={product.thumbnail} alt={`${product.productName}-thumbnail`} className='h-80 w-full shadow-2xl rounded-md'/>
+          <img src={product.thumbnail} alt={`${product.productName}-thumbnail`} className='h-80 w-full shadow-2xl rounded-md' />
         </div>
         <div className='flex flex-col gap-3 lg:px-3 lg:py-0 col-span-12 lg:col-span-7'>
           <p className='text-3xl font-semibold text-gray-900'>{product.productName}</p>
@@ -35,11 +38,16 @@ const Products = () => {
       </div>
       <div className='border border-black my-12 rounded-md'>
         <p className='text-2xl font-semibold text-gray-900 text-center pt-4 underline uppercase'>Product showcase</p>
-        <div className='flex flex-col lg:flex-row gap-8 lg:gap-4 py-12 lg:px-3 flex-wrap items-center justify-center'>
-          {
-            product?.images.map(el => <img src={el} alt={`${product.productName}-thumbnail`} key={el} className=' w-11/12 lg:h-60 lg:w-60 shadow-2xl rounded-md'/>)
-          }
-        </div>
+        <PhotoProvider>
+          <div className='flex flex-col lg:flex-row gap-8 lg:gap-4 py-12 lg:px-3 flex-wrap items-center justify-center'>
+            {
+              product?.images.map((el, id) => <PhotoView key={id} src={el}>
+                <img src={el} alt={`${product.productName}-thumbnail`} className=' w-11/12 lg:h-60 lg:w-60 shadow-2xl rounded-md' />
+              </PhotoView>
+              )
+            }
+          </div>
+        </PhotoProvider>
       </div>
     </div>
   )

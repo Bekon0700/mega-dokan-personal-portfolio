@@ -1,19 +1,30 @@
+import { useQuery } from '@tanstack/react-query'
+import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useLoaderData } from 'react-router-dom'
 import ProductCard from '../../components/product-card/ProductCard'
 
 const AllProducts = () => {
     const [page, setPage] = useState(1)
-    const [products, setProducts] = useState([])
-    useEffect(() => {
-        const apiCall = async () => {
-            const res = await fetch(`https://inventory-api-personal.herokuapp.com/api/v1/products?page=${page}`)
-            const data = await res.json()
-            setProducts(data.products)
-        }
-        apiCall()
-    }, [page])
+    // const [products, setProducts] = useState([])
+    // useEffect(() => {
+    //     const apiCall = async () => {
+    //         const res = await fetch(`https://inventory-rest-api.vercel.app/api/v1/products?page=${page}`)
+    //         const data = await res.json()
+    //         setProducts(data.products)
+    //     }
+    //     apiCall()
+    // }, [page])
 
+
+    const { data: products = [], isLoading, status } = useQuery({
+        queryKey: ['all-products', page],
+        queryFn: async () => {
+            const res = await axios.get(`https://inventory-rest-api.vercel.app/api/v1/products?page=${page}`)
+            return res.data.products
+        },
+        keepPreviousData: true
+    })
     const prevBtnHandler = () => {
         if(page > 1){
             setPage(page-1)
@@ -42,7 +53,7 @@ const AllProducts = () => {
 
             <div className='flex justify-center py-8'>
                 <div className="btn-group">
-                    <button onClick={() => prevBtnHandler()}  className="btn">«</button>
+                    <button onClick={() => prevBtnHandler()} className="btn">«</button>
                     <button className="btn">Page {page}</button>
                     <button onClick={() => nxtBtnHandler()} className="btn">»</button>
                 </div>

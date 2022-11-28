@@ -6,18 +6,8 @@ import ProductCard from '../../components/product-card/ProductCard'
 import { searchContext } from '../../context/SearchProvider'
 
 const SearchProducts = () => {
-    // const [products, setProducts] = useState([])
     const { searchKey } = useContext(searchContext)
-    // useEffect(() => {
-
-    //     const apiCall = async () => {
-    //         const res = await fetch(`https://inventory-rest-api.vercel.app/api/v1/products/search?item=${param.key}`)
-    //         const data = await res.json()
-    //         setProducts(data.products)
-    //     }
-    //     apiCall()
-    // }, [searchKey])
-
+    
     const { data: products = [], isLoading, status } = useQuery({
         queryKey: ['search', searchKey],
         queryFn: async () => {
