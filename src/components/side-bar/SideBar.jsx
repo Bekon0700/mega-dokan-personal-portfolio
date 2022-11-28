@@ -7,7 +7,7 @@ const SideBar = ({ sideBarToggle, setSideBarToggle }) => {
     const [cat, setCat] = useState([])
     useEffect(() => {
         const apiCall = async () => {
-            const res = await fetch('https://inventory-api-personal.herokuapp.com/api/v1/products/category')
+            const res = await fetch('https://inventory-rest-api.vercel.app/api/v1/products/category')
             const {categories} = await res.json()
             setCat(categories)
         }

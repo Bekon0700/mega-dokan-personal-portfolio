@@ -6,27 +6,15 @@ import Loading from '../loading-overlay/Loading'
 import ScrollToTop from '../../scroll-to-top/ScrollToTop'
 
 const Main = () => {
-  const [loading, setLoading] = useState(true)
-  useEffect(() => {
-    setTimeout(() => {
-      setLoading(false)
-    }, 2000);
-  }, [])
+
   return (
     <div>
-      {
-        loading ?
-        <Loading/>
-        :
-        <div>
-            <ScrollToTop />
-            <div className='sticky top-0'>
-            <MainTop />
-            </div>
-              <Outlet />
-            <MainFooter />
-        </div>
-      }
+      <ScrollToTop />
+      <div className='sticky top-0'>
+        <MainTop />
+      </div>
+      <Outlet />
+      <MainFooter />
     </div>
   )
 }

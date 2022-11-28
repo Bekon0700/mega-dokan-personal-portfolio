@@ -14,6 +14,8 @@ import Registration from './pages/registration/Registration'
 import SearchProducts from './pages/search-products/SearchProducts'
 import ProtectedRoute from './protected-route/ProtectedRoute'
 
+
+
 function App() {
   const router = createBrowserRouter([
     {
@@ -23,36 +25,33 @@ function App() {
       children: [
         {
           path: '/',
-          loader: async () => {
-            return fetch('https://inventory-rest-api.vercel.app/api/v1/products/top-10-deals')
-          },
           element: <Home />
         },
         {
           path: 'product/:id',
           loader: async ({params}) => {
-            return fetch(`https://inventory-api-personal.herokuapp.com/api/v1/products/${params.id}`)
+            return fetch(`https://inventory-rest-api.vercel.app/api/v1/products/${params.id}`)
           },
           element: <Products />
         },
         {
           path: 'home',
           loader: async () => {
-            return fetch('https://inventory-api-personal.herokuapp.com/api/v1/products/top-10-deals')
+            return fetch('https://inventory-rest-api.vercel.app/api/v1/products/top-10-deals')
           },
           element: <Home />
         },
         {
           path: 'category/:id',
           loader: async ({params}) => {
-            return fetch(`https://inventory-api-personal.herokuapp.com/api/v1/products/category/${params.id}`)
+            return fetch(`https://inventory-rest-api.vercel.app/api/v1/products/category/${params.id}`)
           },
           element: <ProductCategories />
         },
         {
           path: 'brand/:id',
           loader: async ({params}) => {
-            return fetch(`https://inventory-api-personal.herokuapp.com/api/v1/products/brand/${params.id}`)
+            return fetch(`https://inventory-rest-api.vercel.app/api/v1/products/brand/${params.id}`)
           },
           element: <ProductsBrand />
         },
@@ -92,10 +91,5 @@ function App() {
     </div>
   )
 }
-
-
-// loader: async () => {
-//   return fetch('https://inventory-api-personal.herokuapp.com/api/v1/products/')
-// },
 
 export default App

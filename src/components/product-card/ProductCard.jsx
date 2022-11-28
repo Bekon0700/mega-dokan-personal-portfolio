@@ -11,9 +11,9 @@ const ProductCard = ({ product, megaDeal }) => {
     <div className=''>
       <div className="card static bg-base-100 rounded-md border shadow-xl">
         <figure><img src={thumbnail} alt="Shoes" className='h-64 w-full' /></figure>
-        <div className="card-body p-4 flex flex-col justify-between h-[300px]">
+        <div className={megaDeal ? "card-body p-4 flex flex-col justify-between h-[300px] lg:h-[320px]" : "card-body p-4 flex flex-col justify-between h-[290px]"}>
           <h2 className="pb-3">
-            <Link to={`/product/${_id}`}><p className='text-2xl font-bold'>{productName}
+            <Link to={`/product/${_id}`}><p className='text-2xl font-medium'>{productName}
             {
               megaDeal && <span className="badge badge-secondary ml-2 p-3">Mega Deal</span>
             }
