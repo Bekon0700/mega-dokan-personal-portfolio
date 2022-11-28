@@ -24,7 +24,7 @@ function App() {
         {
           path: '/',
           loader: async () => {
-            return fetch('https://inventory-api-personal.herokuapp.com/api/v1/products/top-10-deals')
+            return fetch('https://inventory-rest-api.vercel.app/api/v1/products/top-10-deals')
           },
           element: <Home />
         },
