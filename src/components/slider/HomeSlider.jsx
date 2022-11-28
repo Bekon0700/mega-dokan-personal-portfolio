@@ -22,11 +22,11 @@ const HomeSlider = () => {
         autoplay: true,
         speed: 2000,
         autoplaySpeed: 6000,
-        cssEase: "ease-in"
+        cssEase: "linear"
     };
     return (
-        <div className='w-11/12 lg:w-3/4 mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-0 items-center py-12'>
-            <div className='w-5/6 '>
+        <div className='w-11/12 lg:w-3/4 mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-0 items-center py-12'>
+            <div className='w-5/6'>
                 <p className='text-4xl lg:text-7xl font-light'>we bring <br/><span className='text-[#FFAE5D] font-bold'> your demand</span><br/> at your doorstep!</p>
             </div>
             <div>
