@@ -25,15 +25,14 @@ const Home = () => {
   return (
     <div className='pb-8'>
       <HomeSlider />
-      <div className='w-full lg:w-3/4 mx-auto'>
-      <Marquee speed={40} gradientWidth={0} className='text-gray-900 font-medium -z-20'>
-        Black friday offer! Get 20% discount on all laptop products
-      </Marquee>
+      <div className='w-11/12 lg:w-3/4 mx-auto'>
+        <Marquee speed={40} gradientWidth={0} className='text-gray-900 font-medium -z-20'>
+          Black friday offer! Get 20% discount on all laptop products
+        </Marquee>
         <MegaDeal data={topData} />
         <div className='flex items-center bg-orange-300 justify-center py-2 gap-4'>
           <Link to={'/all-products'} className="text-gray-700 text-base lg:text-xl font-semibold">Find All our products Here</Link>
         </div>
-
       </div>
     </div>
   )
