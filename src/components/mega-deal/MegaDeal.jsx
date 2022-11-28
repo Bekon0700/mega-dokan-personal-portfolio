@@ -1,8 +1,8 @@
 import React from 'react'
 import ProductCard from '../product-card/ProductCard'
 
-const MegaDeal = ({data}) => {
-  const {products} = data
+const MegaDeal = ({ data }) => {
+  const { products } = data
   return (
     <div className='py-12'>
       <div className='text-lg lg:text-3xl font-bold text-center flex flex-col gap-3'>
@@ -11,9 +11,9 @@ const MegaDeal = ({data}) => {
       </div>
       <div className='py-12 grid grid-cols-1 sm:grid-cols-2  xl:grid-cols-3 2xl:grid-cols-4 gap-8'>
         {
-          products.map(el => <ProductCard key={el._id} product={el} megaDeal={true}/>)
+          products.map(el => <ProductCard key={el._id} product={el} megaDeal={true} />)
         }
-        
+
       </div>
     </div>
   )

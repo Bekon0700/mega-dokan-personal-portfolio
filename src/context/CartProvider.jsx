@@ -23,10 +23,12 @@ const CartProvider = ({children}) => {
   }
 
   const cartClrHandler = () => {
+    toast.success('Cart Cleared')
     setCart([])
   }
 
   const productClrHandler = (id) => {
+    toast.success('Item Removed')
     const exceptProduct = cart.filter(el => el._id != id)
     setCart([...exceptProduct])
   }

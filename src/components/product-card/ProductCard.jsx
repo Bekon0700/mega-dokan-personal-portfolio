@@ -10,7 +10,7 @@ const ProductCard = ({ product, megaDeal }) => {
   return (
     <div className=''>
       <div className="card static bg-base-100 rounded-md border shadow-xl">
-        <figure><img src={thumbnail} alt="Shoes" className='h-64 w-full' /></figure>
+      <Link to={`/product/${_id}`}><figure><img src={thumbnail} alt="Shoes" className='h-64 w-full' /></figure></Link>
         <div className={megaDeal ? "card-body p-4 flex flex-col justify-between h-[300px] lg:h-[320px]" : "card-body p-4 flex flex-col justify-between h-[290px]"}>
           <h2 className="pb-3">
             <Link to={`/product/${_id}`}><p className='text-2xl font-medium'>{productName}
