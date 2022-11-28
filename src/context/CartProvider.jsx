@@ -24,6 +24,7 @@ const CartProvider = ({children}) => {
 
   const cartClrHandler = () => {
     toast.success('Cart Cleared')
+    localStorage.clear()
     setCart([])
   }
 
@@ -32,12 +33,15 @@ const CartProvider = ({children}) => {
     const exceptProduct = cart.filter(el => el._id != id)
     setCart([...exceptProduct])
   }
+  
 
   useEffect(() => {
     let p = 0
     cart.forEach(product => {
       p += totalCalculate(product)
     })
+    
+    localStorage.setItem('cart', JSON.stringify(cart))
 
     setTotalPrice(p)
   }, [cart])

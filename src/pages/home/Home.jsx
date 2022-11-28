@@ -29,7 +29,9 @@ const Home = () => {
         <Marquee speed={40} gradientWidth={0} className='text-gray-900 font-medium -z-20'>
           Black friday offer! Get 20% discount on all laptop products
         </Marquee>
+
         <MegaDeal data={topData} />
+        
         <div className='flex items-center bg-orange-300 justify-center py-2 gap-4'>
           <Link to={'/all-products'} className="text-gray-700 text-base lg:text-xl font-semibold">Find All our products Here</Link>
         </div>

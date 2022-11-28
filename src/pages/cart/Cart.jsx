@@ -6,6 +6,9 @@ import { cartContext } from '../../context/CartProvider'
 const Cart = () => {
     const { cart, totalPrice, cartClrHandler } = useContext(cartContext)
     const totalBill = totalPrice + 5
+
+    console.log(JSON.parse(localStorage.getItem('cart')))
+
     if(cart.length == 0){
         return (
             <div className='flex justify-center items-center h-screen'>
@@ -68,25 +71,6 @@ const Cart = () => {
                     </div>
 
                 </div>
-
-                {/* {
-                !cart.length ?
-                ''
-                :
-                <div className='flex justify-end'>
-                    <p className='text-lg lg:text-2xl font-semibold text-green-800'>Total Price: ${totalPrice.toFixed(2)}</p>
-                </div>
-            }
-            {
-                !cart.length ?
-                <p className='text-center text-2xl font-semibold py-12'>No Item in the cart</p>
-                :
-                <div className='flex flex-col gap-4 justify-center pt-8'>
-                    <Link to='/checkout' className='bg-green-600 py-2 text-base lg:text-lg font-semibold uppercase text-white w-full rounded-md text-center'>Click here to proceed </Link>
-                    <button onClick={cartClrHandler} className='bg-red-800 py-2 text-base lg:text-lg font-semibold uppercase text-white w-full rounded-md text-center'>Clear Cart</button>
-                </div>
-            } 
-            */}
             </div>
         </div>
     )

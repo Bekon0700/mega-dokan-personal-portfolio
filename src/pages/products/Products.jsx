@@ -8,7 +8,6 @@ import 'react-photo-view/dist/react-photo-view.css';
 const Products = () => {
   const { product } = useLoaderData()
   const { cartHandler } = useContext(cartContext)
-
   const { price, discountPercentage, rating } = product
   const discount = (price * 1) * ((discountPercentage * 1) / 100)
   const discountPrice = (price * 1) - discount
