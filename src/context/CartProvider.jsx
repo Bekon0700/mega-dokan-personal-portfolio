@@ -31,9 +31,17 @@ const CartProvider = ({children}) => {
   const productClrHandler = (id) => {
     toast.success('Item Removed')
     const exceptProduct = cart.filter(el => el._id != id)
+    if(exceptProduct.length == 0){
+      localStorage.clear()
+    }
     setCart([...exceptProduct])
   }
   
+  useEffect(() => {
+    const store = JSON.parse(localStorage.getItem('cart')) || []
+    setCart(store)
+  }, [])
+
 
   useEffect(() => {
     let p = 0
@@ -41,7 +49,10 @@ const CartProvider = ({children}) => {
       p += totalCalculate(product)
     })
     
-    localStorage.setItem('cart', JSON.stringify(cart))
+    if(cart.length > 0){
+      localStorage.setItem('cart', JSON.stringify(cart))
+    }
+
 
     setTotalPrice(p)
   }, [cart])

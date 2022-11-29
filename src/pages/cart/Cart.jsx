@@ -7,8 +7,6 @@ const Cart = () => {
     const { cart, totalPrice, cartClrHandler } = useContext(cartContext)
     const totalBill = totalPrice + 5
 
-    console.log(JSON.parse(localStorage.getItem('cart')))
-
     if(cart.length == 0){
         return (
             <div className='flex justify-center items-center h-screen'>
