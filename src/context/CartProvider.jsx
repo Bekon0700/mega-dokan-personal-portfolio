@@ -4,7 +4,7 @@ import toast from 'react-hot-toast'
 export const cartContext = createContext()
 
 
-const CartProvider = ({children}) => {
+const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([])
   const [totalPrice, setTotalPrice] = useState(0)
 
@@ -12,9 +12,9 @@ const CartProvider = ({children}) => {
     const exceptProduct = cart.filter(el => el._id != product._id)
     const onlyProduct = cart.filter(el => el._id === product._id)
 
-    if(onlyProduct[0]){
+    if (onlyProduct[0]) {
       product.quantity = onlyProduct[0].quantity + 1
-    }else{
+    } else {
       product.quantity = 1
     }
     setCart([...exceptProduct, product])
@@ -31,12 +31,12 @@ const CartProvider = ({children}) => {
   const productClrHandler = (id) => {
     toast.success('Item Removed')
     const exceptProduct = cart.filter(el => el._id != id)
-    if(exceptProduct.length == 0){
+    if (exceptProduct.length == 0) {
       localStorage.clear()
     }
     setCart([...exceptProduct])
   }
-  
+
   useEffect(() => {
     const store = JSON.parse(localStorage.getItem('cart')) || []
     setCart(store)
@@ -44,21 +44,27 @@ const CartProvider = ({children}) => {
 
 
   useEffect(() => {
-    let p = 0
-    cart.forEach(product => {
-      p += totalCalculate(product)
-    })
-    
-    if(cart.length > 0){
-      localStorage.setItem('cart', JSON.stringify(cart))
+    let cleaner = true
+    if (cleaner) {
+      let p = 0
+      cart.forEach(product => {
+        p += totalCalculate(product)
+      })
+
+      if (cart.length > 0) {
+        localStorage.setItem('cart', JSON.stringify(cart))
+      }
+      setTotalPrice(p)
     }
 
+    return () => {
+      cleaner = false
+    }
 
-    setTotalPrice(p)
   }, [cart])
 
   const totalCalculate = (product) => {
-    const {price, discountPercentage, quantity} = product
+    const { price, discountPercentage, quantity } = product
     const discount = (price * 1) * ((discountPercentage * 1) / 100)
     const discountPrice = ((price * 1) - discount) * quantity
     return discountPrice
@@ -72,7 +78,7 @@ const CartProvider = ({children}) => {
   }
   return (
     <cartContext.Provider value={value}>
-        {children}
+      {children}
     </cartContext.Provider>
   )
 }
