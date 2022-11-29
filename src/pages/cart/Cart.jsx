@@ -80,10 +80,8 @@ const Cart = () => {
             setSuccessStatus(paymentIntent.id)
             toast.success('payment successful')
             setError('')
-            console.log(successStatus)
         }else{
             setError(confirmError.message)
-            console.log(confirmError)
             setSuccessStatus('')
         }
         setPaymentStatus(false)
@@ -164,7 +162,7 @@ const Cart = () => {
                 <div className="modal-box">
                     <div className='flex justify-between items-center'>
                         <p className='text-base font-bold'>Pay ${totalBill.toFixed(2)}</p>
-                        <label htmlFor="my-modal" onClick={cartClrHandler} className="bg-red-700 text-white px-2 py-1 rounded-md text-sm font-bold">X</label>
+                        <label htmlFor="my-modal" onClick={successStatus ? cartClrHandler : ''} className="bg-red-700 text-white px-2 py-1 rounded-md text-sm font-bold">X</label>
                     </div>
                     <p className='py-4 text-sm text-gray-500'>Please fill in your information carefully</p>
                     <form onSubmit={handleSubmit} className='flex flex-col gap-4 border py-4 px-2'>
