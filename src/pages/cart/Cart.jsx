@@ -51,9 +51,9 @@ const Cart = () => {
             type: 'card',
             card,
             billing_details: {
-                name: user.displayName || '',
-                email: user.email || '',
-                phone: user.phoneNumber || '',
+                name: user?.displayName || '',
+                email: user?.email || '',
+                phone: user?.phoneNumber || '',
             }
         });
 
@@ -68,9 +68,9 @@ const Cart = () => {
                 payment_method: {
                     card: card,
                     billing_details: {
-                        name: user.displayName || '',
-                        email: user.email || '',
-                        phone: user.phoneNumber || '',
+                        name: user?.displayName || '',
+                        email: user?.email || '',
+                        phone: user?.phoneNumber || '',
                     }
                 },
             },
@@ -168,8 +168,8 @@ const Cart = () => {
                     </div>
                     <p className='py-4 text-sm text-gray-500'>Please fill in your information carefully</p>
                     <form onSubmit={handleSubmit} className='flex flex-col gap-4 border py-4 px-2'>
-                        <input type="text" value={user.displayName || 'name'} disabled className='text-base text-gray-400 cursor-no-drop' />
-                        <input type="text" value={user.email || 'email'} disabled className='text-base text-gray-400 cursor-no-drop' />
+                        <input type="text" value={user?.displayName || 'name'} disabled className='text-base text-gray-400 cursor-no-drop' />
+                        <input type="text" value={user?.email || 'email'} disabled className='text-base text-gray-400 cursor-no-drop' />
                         <CardElement
                             options={{
                                 style: {

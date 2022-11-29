@@ -11,6 +11,7 @@
 * React-router-dom
 * Context API
 * Firebase authentication
+* Stripe Payment
 
 ### Key Learning from this project:
 * Responsiveness using tailwindCSS
@@ -18,3 +19,4 @@
 * React-query for fetching data
 * Spinner while loading data
 * login or sign up user using firebase (email/password and google pop up)
+* Implement Payment Gateway
