@@ -31,9 +31,9 @@ const Home = () => {
         </Marquee>
 
         <MegaDeal data={topData} />
-        
-        <div className='flex items-center bg-orange-300 justify-center py-2 gap-4'>
-          <Link to={'/all-products'} className="text-gray-700 text-base lg:text-xl font-semibold">Find All our products Here</Link>
+
+        <div className='flex items-center bg-blue-600 justify-center rounded-sm py-2 gap-4'>
+          <Link to={'/all-products'} className="text-white text-base lg:text-xl font-semibold">Find All our products Here</Link>
         </div>
       </div>
     </div>
